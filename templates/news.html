@@ -1,0 +1,35 @@
+{% extends "parts/base.html" %}
+
+{% block title %} 請修改title {% endblock title %}
+
+{% block navbar_list %}
+{% include "parts/_navbar_tab2.html" %}
+{% endblock navbar_list %}
+
+
+{% block page_content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<form class="form-inline" style="" method="POST" action="/newslist">
+    <div class="row input-group-newsletter" >
+        <div class="col">
+            <input class="form-control" id="testInput" name="url" style="width: 100%" type="search" placeholder="請輸入關鍵字">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+<div>
+    <table id="dataTable" class="table table-striped">
+        {% for i in res %}
+        <tr>
+            <td><a href={{ i['link'] }}>{{ i['title'] }}</a></td>
+            <td>{{ i['published'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock page_content %}
+
