@@ -47,12 +47,7 @@ scipy==1.9.3
 sgmllib3k==1.0.0
 six==1.16.0
 sklearn==0.0
-tensorboard==2.8.0
-tensorboard-data-server==0.6.1
-tensorboard-plugin-wit==1.8.1
-tensorflow-cpu==2.8.0
-tensorflow-io-gcs-filesystem==0.27.0
-termcolor==2.0.1
+tensorflow==2.10.0
 tf-estimator-nightly==2.8.0.dev2021122109
 threadpoolctl==3.1.0
 typing_extensions==4.4.0
@@ -61,3 +56,5 @@ Werkzeug==2.2.2
 wincertstore==0.2
 wrapt==1.14.1
 zipp==3.10.0
+os
+gunicorn

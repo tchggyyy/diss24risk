@@ -3,6 +3,7 @@ from predict import utils
 from predict.model import perform_training
 import pandas as pd
 import requests
+import os
 from urllib.parse import unquote,quote
 import feedparser
 
@@ -98,4 +99,5 @@ def stockplot():
 
 
 if __name__=="__main__":
-    app.run(debug=True, port=5001)
+    port = int(os.environ.get('PORT',5000)
+    app.run(host='0.0.0.0',port=port,debug=True)
