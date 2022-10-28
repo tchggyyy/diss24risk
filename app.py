@@ -6,6 +6,7 @@ import requests
 import os
 from urllib.parse import unquote,quote
 import feedparser
+import json
 
 
 app = Flask(__name__)
@@ -40,10 +41,20 @@ def newslist():
 #   title = "預測模型"
 #   return render_template('predict.html', title=title)
 
+@app.route('/test_post/nn')#路由
+def test_post():
+    csv_read_file = pd.read_csv("C:/Users/User/Desktop/monotest/data/聚類结果.csv", encoding="utf-8")
+    csv_read_data = csv_read_file.values.tolist()
+    return {"imgdata": csv_read_data}
+
+
 @app.route('/risk')
 def risk():
     title = "風險分類"
-    return render_template('risk.html', title=title)
+    csv_read_file = pd.read_csv("data/聚類结果.csv", encoding="utf-8")
+    csv_read_data = csv_read_file.values.tolist()
+    extent = len(csv_read_data)
+    return render_template('risk.html', df=csv_read_data, extent=extent, title=title)
 
 @app.route('/team')
 def team():
@@ -99,5 +110,4 @@ def stockplot():
 
 
 if __name__=="__main__":
-    port = int(os.environ.get('PORT',5000)
-    app.run(host='0.0.0.0',port=port,debug=True)
+    app.run(debug=True, port=5001)
