@@ -43,7 +43,7 @@ def newslist():
 
 @app.route('/test_post/nn')#路由
 def test_post():
-    csv_read_file = pd.read_csv("C:/Users/User/Desktop/monotest/data/聚類结果.csv", encoding="utf-8")
+    csv_read_file = pd.read_csv("data/聚類结果.csv", encoding="utf-8")
     csv_read_data = csv_read_file.values.tolist()
     return {"imgdata": csv_read_data}
 
